@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Inicio</title>
+</head>
+<body>
+    <h1>Inicio</h1>
+    <p th:text="${hola}"></p>
+    <p th:text="${hola2}"></p>
+    <br/>
+    Nombre: <span th:text="${individuo.nombre}">Muestra nombre</span>
+    <br/>
+    Apellido: <span th:text="${individuo.apellido}">Muestra apellido</span>
+    <br/>
+    Edad: <span th:text="${individuo.edad}">Muestra edad</span>
+    <br/>
+    Correo: <span th:text="${individuo.correo}">Muestra correo</span>
+    <br/>
+    Telefono: <span th:text="${individuo.telefono}">Muestra telefono</span>
+</body>
+</html>
