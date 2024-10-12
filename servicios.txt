@@ -1,0 +1,11 @@
+apache2
+mysql
+
+systemctl status apache2.service
+systemctl stop apache2.service
+systemctl start apache2.service
+
+sudo update-rc.d apache2 disable
+sudo update-rc.d mysql disable
+sudo gedit /etc/init/mysql.conf
+añadir linea -> start on (never and runlevel [2345]) -> reiniciar
