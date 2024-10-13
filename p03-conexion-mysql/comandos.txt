@@ -1,0 +1,1 @@
+Create New Project -> 3.3.4 (ultima version terminada) -> Java -> com.nombregroup -> nombrecarpetaraiz (artifact) -> Jar -> 17 (version java) -> seleccionar dependencias (Spring Boot DevTools, Lombook, Spring Web, Thymeleaf, MySQL Driver, Spring Data JPA) -> continue -> seleccionar una carpeta para generar proyecto -> abrir carpeta en VS
