@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos del nuevo Individuo</title>
+</head>
+
+<body>
+    <h1>Datos del nuevo Individuo</h1>
+    <a th:href="@{/}">Home</a>
+    <br/>
+    <form th:action="@{/salvar}" method="post" th:object="${individuo}">
+        <input type="hidden" name="id_individuo" th:field="*{id_individuo}"/>
+        
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" th:field="*{nombre}"/>
+        <br/>
+
+        <label for="apellido">Apellido: </label>
+        <input type="text" name="apellido" th:field="*{apellido}"/>
+        <br/>
+
+        <label for="edad">Edad: </label>
+        <input type="number" name="edad" th:field="*{edad}"/>
+        <br/>
+        
+        <label for="correo">Correo: </label>
+        <input type="email" name="correo" th:field="*{correo}"/>
+        <br/>
+
+        <label for="telefono">Telefono: </label>
+        <input type="tel" name="telefono" th:field="*{telefono}"/>
+        <br/>
+
+        <input type="submit" name="salvar" value="Salvar"/>
+    </form>
+</body>
+
+</html>

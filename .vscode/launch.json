@@ -1,0 +1,28 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "P04ConsumidorControlApplication",
+            "request": "launch",
+            "mainClass": "com.example.p04_consumidor_control.P04ConsumidorControlApplication",
+            "projectName": "p04-consumidor-control"
+        },
+        {
+            "type": "java",
+            "name": "P02HolaThymeleafApplication",
+            "request": "launch",
+            "mainClass": "com.example.p02_hola_thymeleaf.P02HolaThymeleafApplication",
+            "projectName": "p02-hola-thymeleaf"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-P03ConexionMysqlApplication<p03-conexion-mysql>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.p03_conexion_mysql.P03ConexionMysqlApplication",
+            "projectName": "p03-conexion-mysql",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
