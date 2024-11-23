@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla</title>
+</head>
+<body>
+    <header th:fragment="encabezado">
+        <h1 th:text="#{pagina.titulo}">Control Consumidor</h1>
+    </header>
+
+    <footer th:fragment="piepagina">
+        <br/>
+        <a th:href="@{/ (lang=es)}">ES</a> - 
+        <a th:href="@{/ (lang=en)}">EN</a>
+        <p>[[#{pagina.pie-de-pagina}]] Proyecto de Prueba</p>
+    </footer>
+</body>
+</html>

@@ -6,18 +6,19 @@
     <title>Pagina Inicio</title>
 </head>
 <body>
-    <h1>Inicio</h1>
-    <a th:href="@{/anexar}">Alta Individuo</a>
+    <header th:replace="Plantilla/plantilla :: encabezado"></header>
+    <h2>Inicio</h2>
+    <a th:href="@{/anexar}">[[#{individuo.anexar}]]</a>
     <div th:if="${individuos != null and !individuos.empty}">
         <table border="2">
             <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Edad</th>
-                <th>Correo</th>
-                <th>telefono</th>
-                <th>Cambiar</th>
-                <th>Borrar</th>
+                <th>[[#{individuo.nombre}]]</th>
+                <th>[[#{individuo.apellido}]]</th>
+                <th>[[#{individuo.edad}]]</th>
+                <th>[[#{individuo.correo}]]</th>
+                <th>[[#{individuo.telefono}]]</th>
+                <th>[[#{boton.modificar}]]</th>
+                <th>[[#{boton.borrar}]]</th>
             </tr>
             <tr th:each="individuo : ${individuos}">
                 <td th:text="${individuo.nombre}"></td>
@@ -31,7 +32,9 @@
         </table>
     </div>
     <div th:if="${individuos == null or individuos.empty}">
-        Lista vacia
+        [[#{individuo.lista-sin-info}]]
     </div>
+
+    <footer th:replace="Plantilla/plantilla :: piepagina"></footer>
 </body>
 </html>

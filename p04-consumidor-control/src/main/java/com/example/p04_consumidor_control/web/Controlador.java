@@ -7,10 +7,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.p04_consumidor_control.domain.Individuo;
 import com.example.p04_consumidor_control.servicio.IndividuoServicio;
+
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -38,7 +42,10 @@ public class Controlador {
     }
 
     @PostMapping("/salvar")
-    public String salvar(Individuo individuo) {
+    public String salvar(@Valid Individuo individuo, Errors error) {
+        if(error.hasErrors()){
+            return "cambiar";
+        }
         individuoServicio.salvar(individuo);
         return "redirect:/";
     }
