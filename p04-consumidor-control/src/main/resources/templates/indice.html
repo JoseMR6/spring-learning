@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +10,7 @@
 <body>
     <header th:replace="Plantilla/plantilla :: encabezado"></header>
     <h2>Inicio</h2>
-    <a th:href="@{/anexar}">[[#{individuo.anexar}]]</a>
+    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/anexar}">[[#{individuo.anexar}]]</a>
     <div th:if="${individuos != null and !individuos.empty}">
         <table border="2">
             <tr>
@@ -17,8 +19,8 @@
                 <th>[[#{individuo.edad}]]</th>
                 <th>[[#{individuo.correo}]]</th>
                 <th>[[#{individuo.telefono}]]</th>
-                <th>[[#{boton.modificar}]]</th>
-                <th>[[#{boton.borrar}]]</th>
+                <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{boton.modificar}]]</th>
+                <th sec:authorize="hasRole('ROLE_ADMIN')">[[#{boton.borrar}]]</th>
             </tr>
             <tr th:each="individuo : ${individuos}">
                 <td th:text="${individuo.nombre}"></td>
@@ -26,8 +28,8 @@
                 <td th:text="${individuo.edad}"></td>
                 <td th:text="${individuo.correo}"></td>
                 <td th:text="${individuo.telefono}"></td>
-                <td><a th:href="@{/cambiar/} + ${individuo.id_individuo}" th:text="Cambiar"/></td>
-                <td><a th:href="@{/borrar/} + ${individuo.id_individuo}" th:text="Borrar"/></td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/cambiar/} + ${individuo.id_individuo}" th:text="Cambiar"/></td>
+                <td sec:authorize="hasRole('ROLE_ADMIN')"><a th:href="@{/borrar/} + ${individuo.id_individuo}" th:text="Borrar"/></td>
             </tr>
         </table>
     </div>

@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -26,10 +28,11 @@ public class Controlador {
     private IndividuoServicio individuoServicio;
     
     @GetMapping("/")
-    public String comienzo(Model model) {
+    public String comienzo(Model model, @AuthenticationPrincipal User usuario) {
         List<Individuo> individuos = individuoServicio.listaIndividuos();
 
         log.info("Ejecutando Controlador MVC");
+        log.info("Usuario actual es: " + usuario);
 
         model.addAttribute("individuos", individuos);
 
